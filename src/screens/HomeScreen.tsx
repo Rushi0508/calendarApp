@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Filter from '../components/Filter'
+import Cal from '../components/Calendar'
 
 const HomeScreen = () => {
 
@@ -34,9 +35,8 @@ const HomeScreen = () => {
 
         {/* Filter Modal  */}
         {
-            filterOpen ? <Filter/> : null
+            filterOpen ? <Filter setFilterOpen={setFilterOpen}/> : null
         }
-
         
     </SafeAreaView>
   )
