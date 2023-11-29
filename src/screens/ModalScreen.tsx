@@ -99,7 +99,7 @@ const ModalScreen = ({navigation}:any) => {
             <View style={tw`mx-10 my-3`}>
               <TextInput 
                 placeholder='Search people'
-                style={tw`border-2 border-gray-100 text-gray-100 rounded-xl px-2 py-1`}
+                style={tw`border-2 border-gray-100 text-black rounded-xl px-2 py-1`}
               />
             </View>
           </View>
