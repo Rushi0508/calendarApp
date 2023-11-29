@@ -14,13 +14,16 @@ import {
 } from 'react-native';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigator from './StackNavigator';
 
 function App(): JSX.Element {
 
   return (
     <>
-      {/* <LoginScreen/> */}
-      <HomeScreen/>
+      <NavigationContainer>
+        <StackNavigator/>
+      </NavigationContainer>
     </>
   );
 }

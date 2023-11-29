@@ -4,7 +4,7 @@ import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Filter from '../components/Filter'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}:any) => {
 
     const [filterOpen, setFilterOpen] = useState(false);
 
@@ -74,6 +74,11 @@ const HomeScreen = () => {
         {
             filterOpen ? <Filter setFilterOpen={setFilterOpen}/> : null
         }
+
+        {/* New Meeting Button  */}
+        <TouchableOpacity onPress={()=>navigation.navigate("Modal")} style={tw`absolute bg-[#FCBF1C] rounded-full px-4 bottom-10 right-10`}>
+            <Text style={[tw`text-white text-center`, {fontSize: 40}]}>+</Text>
+        </TouchableOpacity>
 
     </SafeAreaView>
   )
