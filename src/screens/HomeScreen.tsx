@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Filter from '../components/Filter'
-import Cal from '../components/Calendar'
 
 const HomeScreen = () => {
 
@@ -22,7 +21,7 @@ const HomeScreen = () => {
                 <Icon name='filter-outline' size={25} color="#000"/>
             </TouchableOpacity>
             <Text style={tw`text-lg text-center text-black font-bold z-1`}>Home</Text>
-            <View style={tw`flex flex-row absolute right-2 gap-2`}>
+            <View style={tw`flex flex-row absolute right-2 gap-2 z-2`}>
                 <TouchableOpacity>
                     <Icon name='notifications-outline' size={25} color="#000"/>
                 </TouchableOpacity>
@@ -32,12 +31,50 @@ const HomeScreen = () => {
             </View>
         </View>
         {/* Header Ends  */}
+        
+        {/* Home Section  */}
+        <View style={tw`border-l-4 border-[#FCBF1C] m-2`}>
+            <Text style={tw`ml-2 text-black text-lg font-semibold tracking-wider`}>Upcomming</Text>
+        </View>
+
+        <View style={tw`flex flex-row mx-2`}>
+            <View style={tw`mt-2 mx-1`}>
+                <Text style={tw`text-xs`}>Fri</Text>
+                <Text style={tw`px-1 rounded-2xl bg-[#FCBF1C] text-center text-base text-white`}>3</Text>
+            </View>
+            <View style={tw`mb-2 flex-1 bg-white flex flex-row justify-between items-center rounded-xl p-3 mx-2`}>
+                <View>
+                    <Text style={tw`text-black`}>Meeting For Business</Text>
+                    <Text style={tw`text-xs`}>7:35 - 8:30 P.M</Text>
+                </View>
+                <View style={tw`flex flex-row gap-1`}>
+                    <Icon name='person-outline' size={18} color='#FCBF1C'/>
+                    <Text style={tw`text-[#ca8a04]`}>2</Text>
+                </View>
+            </View>
+        </View> 
+        <View style={tw`flex flex-row mx-2`}>
+            <View style={tw`mt-2 mx-1`}>
+                <Text style={tw`text-xs`}>Sat</Text>
+                <Text style={tw`px-1 rounded-2xl text-center text-base text-black`}>4</Text>
+            </View>
+            <View style={tw`mb-2 flex-1 bg-white flex flex-row justify-between items-center rounded-xl p-3 mx-2`}>
+                <View>
+                    <Text style={tw`text-black`}>Family Night Plan</Text>
+                    <Text style={tw`text-xs`}>9:00 - 11:30 P.M</Text>
+                </View>
+                <View style={tw`flex flex-row gap-1`}>
+                    <Icon name='person-outline' size={18} color='#FCBF1C'/>
+                    <Text style={tw`text-[#ca8a04]`}>4</Text>
+                </View>
+            </View>
+        </View>
 
         {/* Filter Modal  */}
         {
             filterOpen ? <Filter setFilterOpen={setFilterOpen}/> : null
         }
-        
+
     </SafeAreaView>
   )
 }

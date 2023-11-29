@@ -13,8 +13,9 @@ const Filter = ({setFilterOpen}:any) => {
   return (
     <>
     {
-        !calendarOpen? 
-        <View style={tw`bg-white w-[90%] m-auto rounded-2xl shadow-md`}>
+        !calendarOpen?
+        <View style={tw`absolute w-[90%] flex w-full top-40% items-center justify-center flex-1`}> 
+        <View style={tw`bg-white w-[90%] rounded-2xl shadow-md`}>
             <View style={tw`flex flex-row justify-between p-3 border-b border-gray-300`}>
                 <Text style={tw`text-black font-bold text-base tracking-wider`}>Filter</Text>
                 <TouchableOpacity style={tw`mr-1`} onPress={()=>setFilterOpen(false)}>
@@ -36,6 +37,7 @@ const Filter = ({setFilterOpen}:any) => {
                     </TouchableOpacity>
                 </View>
             </View>
+        </View>
         </View>
         :
         <Cal setCalendarOpen={setCalendarOpen}/>
