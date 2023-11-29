@@ -31,6 +31,13 @@ const HomeScreen = () => {
             </View>
         </View>
         {/* Header Ends  */}
+
+        {/* Filter Modal  */}
+        {
+            filterOpen ? <Filter/> : null
+        }
+
+        
     </SafeAreaView>
   )
 }
