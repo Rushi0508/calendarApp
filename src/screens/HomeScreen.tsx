@@ -93,7 +93,7 @@ const HomeScreen = ({navigation}:any) => {
         }
 
         {/* New Meeting Button  */}
-        <TouchableOpacity onPress={()=>navigation.navigate("Login")} style={tw`absolute h-12 w-12 rounded-full bg-[#FCBF1C] bottom-10 right-10`}>
+        <TouchableOpacity onPress={()=>navigation.navigate("Modal")} style={tw`absolute h-12 w-12 rounded-full bg-[#FCBF1C] bottom-10 right-10`}>
             <CustomText style={[tw`text-white text-center`, {fontSize: 35}]}>+</CustomText>
         </TouchableOpacity>
 

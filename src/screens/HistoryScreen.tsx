@@ -3,8 +3,19 @@ import React from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import CustomText from '../components/CustomText'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const HistoryScreen = ({navigation}:any) => {
+
+    const handleLogOut = async ()=>{
+        try{
+            await AsyncStorage.removeItem('isLoggedIn')
+            navigation.navigate("Login");
+        }catch(err:any){
+            console.log("Cannot remove storage")
+        }
+    }
+
   return (
     <SafeAreaView style={tw`flex-1 bg-white`}>
         {/* Header Start  */}
@@ -29,6 +40,9 @@ const HistoryScreen = ({navigation}:any) => {
                 <CustomText style={tw`absolute bottom-[-1] right-1 text-xs`}>6:30 P.M</CustomText>
             </View>
         </View>
+        <TouchableOpacity onPress={handleLogOut} style={tw`absolute bottom-5 flex flex-row justify-center w-full `}>
+            <CustomText style={tw`text-base`}>Log Out</CustomText>
+        </TouchableOpacity>
     </SafeAreaView>
   )
 }

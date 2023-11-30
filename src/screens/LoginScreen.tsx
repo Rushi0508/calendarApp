@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, Button, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TextInput, Button, TouchableOpacity, ActivityIndicator, ToastAndroid } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -13,13 +13,16 @@ const LoginScreen = ({navigation}:any) => {
     const [confirm, setConfirm] = useState(null)
     const [code, setCode] = useState('');
     const [mobileNumber, setMobileNumber] = useState('')
+    const [isLoading, setIsLoading] = useState(false);
+
     async function signInWithPhoneNumber(phoneNumber:any) {
         try{
-
+            setIsLoading(true)
             const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
             // @ts-ignore
             setConfirm(confirmation);
-            console.log(confirmation);
+            ToastAndroid.show('OTP sent successfully', ToastAndroid.BOTTOM)
+            setIsLoading(false)
             
         }
         catch(err:any){
@@ -81,7 +84,12 @@ const LoginScreen = ({navigation}:any) => {
                     onChangeText={(text)=>setMobileNumber(text)}
                 />
                 <TouchableOpacity onPress={()=>signInWithPhoneNumber(`+91${mobileNumber}`)} style={tw`absolute right-1 px-2 border-l border-gray-400 py-2`}>
-                    <CustomText style={tw`text-xs`}>Send OTP</CustomText>
+                    {
+                        !isLoading? 
+                        <CustomText style={tw`text-xs`}>Send OTP</CustomText> 
+                        :
+                        <ActivityIndicator size="small" color="#000000" />
+                    }
                 </TouchableOpacity>
             </View>
             <View style={tw`w-[80%] flex flex-row items-center px-3 mb-5 bg-[#f6f4f5] rounded-2xl`}>
