@@ -11,7 +11,7 @@ const MeetingScreen = ({navigation}:any) => {
       <SafeAreaView style={tw`flex-1 bg-white`}>
         {/* Meeting Section  */}
           {/* Meeting Title  */}
-        <View style={tw`px-5 border-b border-gray-400 py-2`}>
+        <View style={tw`px-5 border-b border-gray-400 py-3`}>
           <Text style={tw`ml-3 text-xl font-semibold tracking-wide text-black`}>Meeting</Text>
         </View>
 
