@@ -1,9 +1,10 @@
 import { View, Text, SafeAreaView,StyleSheet, TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Filter from '../components/Filter'
 import CustomText from '../components/CustomText'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const HomeScreen = ({navigation}:any) => {
 
@@ -13,6 +14,21 @@ const HomeScreen = ({navigation}:any) => {
         if(filterOpen) setFilterOpen(false)
         else setFilterOpen(true)
     }
+
+    const fetchUser = async ()=>{
+        try{
+            const userID = await AsyncStorage.getItem('isLoggedIn');
+            if(userID == null){
+                navigation.navigate("Login")
+            }
+        }catch(err:any){
+            console.log("No User Data Saved")
+        }
+    }
+
+    useEffect(()=>{
+        fetchUser();
+    }, [])
 
   return (
     <SafeAreaView style={tw`flex-1 bg-[#f6f4f5]`}>

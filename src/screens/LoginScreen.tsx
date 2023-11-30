@@ -1,13 +1,65 @@
 import { View, Text, Image, TextInput, Button, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { TouchableWithoutFeedback } from 'react-native'
 import { Keyboard } from 'react-native'
 import { SafeAreaView } from 'react-native'
 import CustomText from '../components/CustomText'
+import auth from '@react-native-firebase/auth'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const LoginScreen = ({navigation}:any) => {
+    const [confirm, setConfirm] = useState(null)
+    const [code, setCode] = useState('');
+    const [mobileNumber, setMobileNumber] = useState('')
+    async function signInWithPhoneNumber(phoneNumber:any) {
+        try{
+
+            const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+            // @ts-ignore
+            setConfirm(confirmation);
+            console.log(confirmation);
+            
+        }
+        catch(err:any){
+            console.log(err)
+        }
+    }
+
+    async function confirmCode() {
+        try {
+            console.log(mobileNumber, code)
+            // @ts-ignore
+            const {user} = await confirm.confirm(code);
+            console.log(user)
+            try{
+                await AsyncStorage.setItem('isLoggedIn',user.uid)
+            }catch(err:any){
+                console.log("Unable to save data")
+            }
+            navigation.navigate("Home")
+        } catch (error) {
+            console.log('Invalid code.');
+        }
+    }
+
+    const fetchUser = async ()=>{
+        try{
+            const userID = await AsyncStorage.getItem('isLoggedIn');
+            if(userID != null){
+                navigation.navigate("Home")
+            }
+        }catch(err:any){
+            console.log("No User Data Saved")
+        }
+    }
+
+    useEffect(()=>{
+        fetchUser();
+    }, [])
+    
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <SafeAreaView style={tw`flex-1 bg-white items-center justify-center`}>
@@ -25,8 +77,10 @@ const LoginScreen = ({navigation}:any) => {
                 placeholder='Mobile No.'
                     style={[tw`font-light w-[905]`, {fontFamily: 'Poppins-Regular'}]}
                     keyboardType='numeric'
+                    value={mobileNumber}
+                    onChangeText={(text)=>setMobileNumber(text)}
                 />
-                <TouchableOpacity style={tw`absolute right-1 px-2 border-l border-gray-400 py-2`}>
+                <TouchableOpacity onPress={()=>signInWithPhoneNumber(`+91${mobileNumber}`)} style={tw`absolute right-1 px-2 border-l border-gray-400 py-2`}>
                     <CustomText style={tw`text-xs`}>Send OTP</CustomText>
                 </TouchableOpacity>
             </View>
@@ -36,9 +90,11 @@ const LoginScreen = ({navigation}:any) => {
                 placeholder='Enter OTP'
                     style={[tw`font-light w-[90%]`, {fontFamily: 'Poppins-Regular'}]}
                     keyboardType='numeric'
+                    value={code}
+                    onChangeText={(text)=>setCode(text)}
                 />
             </View>
-            <TouchableOpacity onPress={()=>{navigation.navigate("Home")}} style={tw`w-[80%] shadow-md mb-5 bg-[#FCBF1C] p-2 rounded-2xl`}>
+            <TouchableOpacity onPress={confirmCode} style={tw`w-[80%] shadow-md mb-5 bg-[#FCBF1C] p-2 rounded-2xl`}>
                 <CustomText style={tw`text-center text-lg text-white font-bold`}>Login</CustomText>
             </TouchableOpacity>
         </SafeAreaView>

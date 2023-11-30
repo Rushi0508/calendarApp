@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "167795397765",
+    "project_id": "calendar-64231",
+    "storage_bucket": "calendar-64231.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167795397765:android:00db6e93bb9ea55ab7c5ec",
+        "android_client_info": {
+          "package_name": "com.calendarapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFCfz7wDOn12vtqoEJ8eTLpMZLcw5Y3gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
