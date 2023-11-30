@@ -11,7 +11,7 @@ const HistoryScreen = ({navigation}:any) => {
             <TouchableOpacity onPress={()=>navigation.goBack()} style={tw`z-2 absolute left-2`}>
                 <Icon name='chevron-back-outline' size={30} color="#000"/>
             </TouchableOpacity>
-            <Text style={tw`text-lg text-center text-black font-bold z-1`}>History</Text>
+            <Text style={tw`text-lg text-center text-black tracking-wide font-bold z-1`}>History</Text>
         </View>
         {/* Header Ends  */}
         

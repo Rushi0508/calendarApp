@@ -20,9 +20,9 @@ const HomeScreen = ({navigation}:any) => {
             <TouchableOpacity onPress={handleFilter} style={tw`z-2 absolute left-2`}>
                 <Icon name='filter-outline' size={25} color="#000"/>
             </TouchableOpacity>
-            <Text style={tw`text-lg text-center text-black font-bold z-1`}>Home</Text>
+            <Text style={tw`text-lg tracking-wide text-center text-black font-bold z-1`}>Home</Text>
             <View style={tw`flex flex-row absolute right-2 gap-2 z-2`}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate("Notification")}>
                     <Icon name='notifications-outline' size={25} color="#000"/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=>navigation.navigate("History")}>
