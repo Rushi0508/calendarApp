@@ -2,6 +2,7 @@ import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
+import CustomText from '../components/CustomText'
 
 const NotificationScreen = ({navigation}:any) => {
   return (
@@ -11,7 +12,7 @@ const NotificationScreen = ({navigation}:any) => {
             <TouchableOpacity onPress={()=>navigation.goBack()} style={tw`z-2 absolute left-2`}>
                 <Icon name='chevron-back-outline' size={30} color="#000"/>
             </TouchableOpacity>
-            <Text style={tw`text-lg text-center tracking-wide text-black font-bold z-1`}>Notifications</Text>
+            <CustomText style={tw`text-lg text-center tracking-wide text-black font-bold z-1`}>Notifications</CustomText>
         </View>
         {/* Header Ends  */}
         
@@ -25,20 +26,20 @@ const NotificationScreen = ({navigation}:any) => {
                     />
                 </View>
                 <View style={tw``}>
-                    <Text style={tw`text-black text-base`}>Abhishek scheduled a meeting</Text>
-                    <Text style={tw`text-sm text-gray-700`}>25th December, 2023</Text>
+                    <CustomText style={tw`text-black text-base`}>Abhishek scheduled a meeting</CustomText>
+                    <CustomText style={tw`text-sm text-gray-700`}>25th December, 2023</CustomText>
                     <View style={tw`flex flex-row gap-2 mt-2`}>
                         <TouchableOpacity style={tw`py-1 px-5 rounded-2xl bg-red-500 shadow-sm`}>
-                            <Text style={tw`text-xs text-white`}>Decline</Text>
+                            <CustomText style={tw`text-xs text-white`}>Decline</CustomText>
                         </TouchableOpacity>
                         <TouchableOpacity style={tw`py-1 px-5 rounded-2xl bg-[#FCBF1C] shadow-sm`}>
-                            <Text style={tw`text-xs text-white`}>Accept</Text>
+                            <CustomText style={tw`text-xs text-white`}>Accept</CustomText>
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
             <View style={tw`my-2`}>
-                <Text style={tw`my-1 text-xs`}>6:00 P.M</Text>
+                <CustomText style={tw`my-1 text-xs`}>6:00 P.M</CustomText>
             </View>
         </View>
     </SafeAreaView>

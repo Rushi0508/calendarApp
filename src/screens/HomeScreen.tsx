@@ -1,8 +1,9 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView,StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import tw from 'twrnc'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Filter from '../components/Filter'
+import CustomText from '../components/CustomText'
 
 const HomeScreen = ({navigation}:any) => {
 
@@ -20,7 +21,7 @@ const HomeScreen = ({navigation}:any) => {
             <TouchableOpacity onPress={handleFilter} style={tw`z-2 absolute left-2`}>
                 <Icon name='filter-outline' size={25} color="#000"/>
             </TouchableOpacity>
-            <Text style={tw`text-lg tracking-wide text-center text-black font-bold z-1`}>Home</Text>
+            <CustomText style={tw`text-lg tracking-wide text-center text-black font-bold z-1`}>Home</CustomText>
             <View style={tw`flex flex-row absolute right-2 gap-2 z-2`}>
                 <TouchableOpacity onPress={()=>navigation.navigate("Notification")}>
                     <Icon name='notifications-outline' size={25} color="#000"/>
@@ -34,38 +35,38 @@ const HomeScreen = ({navigation}:any) => {
         
         {/* Home Section  */}
         <View style={tw`border-l-4 border-[#FCBF1C] m-2`}>
-            <Text style={tw`ml-2 text-black text-lg font-semibold tracking-wider`}>Upcomming</Text>
+            <CustomText style={tw`ml-2 text-black text-lg font-semibold tracking-wide`}>Upcomming</CustomText>
         </View>
 
-        <View style={tw`flex flex-row mx-2`}>
-            <View style={tw`mt-2 mx-1`}>
-                <Text style={tw`text-xs`}>Fri</Text>
-                <Text style={tw`px-1 rounded-2xl bg-[#FCBF1C] text-center text-base text-white`}>3</Text>
+        <View style={tw`flex flex-row mx-2 items-center`}>
+            <View style={tw`mx-1`}>
+                <CustomText style={tw`text-xs text-center`}>Fri</CustomText>
+                <CustomText style={tw`px-1 rounded-2xl bg-[#FCBF1C] text-center text-base text-white`}>3</CustomText>
             </View>
             <View style={tw`mb-2 flex-1 bg-white flex flex-row justify-between items-center rounded-xl p-3 mx-2`}>
                 <View>
-                    <Text style={tw`text-black`}>Meeting For Business</Text>
-                    <Text style={tw`text-xs`}>7:35 - 8:30 P.M</Text>
+                    <CustomText style={tw`text-black`}>Meeting For Business</CustomText>
+                    <CustomText style={tw`text-xs`}>7:35 - 8:30 P.M</CustomText>
                 </View>
                 <View style={tw`flex flex-row gap-1`}>
                     <Icon name='person-outline' size={18} color='#FCBF1C'/>
-                    <Text style={tw`text-[#ca8a04]`}>2</Text>
+                    <CustomText style={tw`text-[#ca8a04]`}>2</CustomText>
                 </View>
             </View>
         </View> 
-        <View style={tw`flex flex-row mx-2`}>
-            <View style={tw`mt-2 mx-1`}>
-                <Text style={tw`text-xs`}>Sat</Text>
-                <Text style={tw`px-1 rounded-2xl text-center text-base text-black`}>4</Text>
+        <View style={tw`flex flex-row mx-2 items-center`}>
+            <View style={tw`mx-1`}>
+                <CustomText style={tw`text-xs text-center`}>Sat</CustomText>
+                <CustomText style={tw`px-1 rounded-2xl text-center text-base text-black`}>4</CustomText>
             </View>
             <View style={tw`mb-2 flex-1 bg-white flex flex-row justify-between items-center rounded-xl p-3 mx-2`}>
                 <View>
-                    <Text style={tw`text-black`}>Family Night Plan</Text>
-                    <Text style={tw`text-xs`}>9:00 - 11:30 P.M</Text>
+                    <CustomText style={tw`text-black`}>Family Night Plan</CustomText>
+                    <CustomText style={tw`text-xs`}>9:00 - 11:30 P.M</CustomText>
                 </View>
                 <View style={tw`flex flex-row gap-1`}>
                     <Icon name='person-outline' size={18} color='#FCBF1C'/>
-                    <Text style={tw`text-[#ca8a04]`}>4</Text>
+                    <CustomText style={tw`text-[#ca8a04]`}>4</CustomText>
                 </View>
             </View>
         </View>
@@ -76,8 +77,8 @@ const HomeScreen = ({navigation}:any) => {
         }
 
         {/* New Meeting Button  */}
-        <TouchableOpacity onPress={()=>navigation.navigate("Modal")} style={tw`absolute bg-[#FCBF1C] rounded-full px-4 bottom-10 right-10`}>
-            <Text style={[tw`text-white text-center`, {fontSize: 40}]}>+</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate("Login")} style={tw`absolute h-12 w-12 rounded-full bg-[#FCBF1C] bottom-10 right-10`}>
+            <CustomText style={[tw`text-white text-center`, {fontSize: 35}]}>+</CustomText>
         </TouchableOpacity>
 
     </SafeAreaView>
