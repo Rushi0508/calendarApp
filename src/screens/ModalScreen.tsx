@@ -18,7 +18,7 @@ const ModalScreen = ({navigation}:any) => {
             <TouchableOpacity onPress={()=>navigation.goBack()} style={tw``}>
                 <Icon name='close-outline' size={30} color="#000"/>
             </TouchableOpacity>
-            <TouchableOpacity style={tw`bg-[#FCBF1C] py-1 px-2 rounded-2xl mr-2`}>
+            <TouchableOpacity onPress={()=>navigation.navigate("Meeting")} style={tw`bg-[#FCBF1C] py-1 px-2 rounded-2xl mr-2`}>
               <Text style={tw`text-base text-white font-semibold`}>Create</Text>
             </TouchableOpacity>
         </View>
