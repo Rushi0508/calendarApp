@@ -46,6 +46,7 @@ const ModalScreen = ({navigation}:any) => {
               isChecked={isChecked}
               onPress={() => setIsChecked(!isChecked)}
               fillColor="#FCBF1C"
+              size={20}
             />
           </View>
           {/* Outer View  */}
