@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 function StackNavigator() {
 
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}}>
+    <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown:false}}>
       {
           <>
             <Stack.Group>
