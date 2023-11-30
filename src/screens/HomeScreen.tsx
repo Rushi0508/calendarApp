@@ -16,7 +16,7 @@ const HomeScreen = ({navigation}:any) => {
   return (
     <SafeAreaView style={tw`flex-1 bg-[#f6f4f5]`}>
         {/* Header Start  */}
-        <View style={tw`flex z-1000 justify-center bg-white relative py-3 border-b border-gray-400`}>
+        <View style={tw`flex z-1000 justify-center bg-white relative py-3 border-b border-gray-300`}>
             <TouchableOpacity onPress={handleFilter} style={tw`z-2 absolute left-2`}>
                 <Icon name='filter-outline' size={25} color="#000"/>
             </TouchableOpacity>
@@ -25,8 +25,8 @@ const HomeScreen = ({navigation}:any) => {
                 <TouchableOpacity>
                     <Icon name='notifications-outline' size={25} color="#000"/>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Icon name='albums-outline' size={25} color="#000"/>
+                <TouchableOpacity onPress={()=>navigation.navigate("History")}>
+                    <Icon name='timer-outline' size={25} color="#000"/>
                 </TouchableOpacity>
             </View>
         </View>
