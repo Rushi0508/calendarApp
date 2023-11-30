@@ -6,7 +6,7 @@ import CustomText from '../components/CustomText'
 
 const HistoryScreen = ({navigation}:any) => {
   return (
-    <SafeAreaView style={tw`flex-1 bg-[#f6f4f5]`}>
+    <SafeAreaView style={tw`flex-1 bg-white`}>
         {/* Header Start  */}
         <View style={tw`flex z-1000 justify-center bg-white relative py-3 border-b border-gray-300`}>
             <TouchableOpacity onPress={()=>navigation.goBack()} style={tw`z-2 absolute left-2`}>
@@ -15,15 +15,14 @@ const HistoryScreen = ({navigation}:any) => {
             <CustomText style={tw`text-lg text-center text-black tracking-wide font-bold z-1`}>History</CustomText>
         </View>
         {/* Header Ends  */}
-        
         {/* History Section  */}
-        <View style={tw`flex relative flex-row items-center gap-3 bg-white border-b border-gray-400 py-1 px-3`}>
+        <View style={[tw`flex relative bg-white w-full border-b border-gray-400 flex-row items-center gap-3 py-1`,{paddingHorizontal: 10}]}>
             <View style={tw`my-2`}>
                 <CustomText style={tw``}>Fri</CustomText>
                 <CustomText style={tw`text-base text-center text-black`}>3</CustomText>
             </View>
-            <View style={tw`my-2`}>
-                <CustomText style={tw`text-black`}>Abhishek scheduled a meeting on 4 Saturday, 2023.</CustomText>
+            <View style={tw`my-2 w-full flex-shrink-1`}>
+                <CustomText style={tw`text-black text-sm`}>Abhishek scheduled a meeting on 4 Saturday, 2023.</CustomText>
                 <TouchableOpacity onPress={()=>navigation.navigate("Meeting")}>
                     <CustomText style={tw`text-sm`}>Click for Details</CustomText>
                 </TouchableOpacity>
