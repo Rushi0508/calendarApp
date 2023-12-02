@@ -25,8 +25,10 @@ const LoginScreen = ({navigation}:any) => {
             setIsLoading(false)
             
         }
-        catch(err:any){
+        catch(err:any){ 
             console.log(err)
+            ToastAndroid.show('OTP not sent', ToastAndroid.BOTTOM)
+            setIsLoading(false)
         }
     }
 
@@ -43,7 +45,8 @@ const LoginScreen = ({navigation}:any) => {
             }
             navigation.navigate("Home")
         } catch (error) {
-            console.log('Invalid code.');
+            console.log('Invalid code.'); 
+            ToastAndroid.show('Invalid code', ToastAndroid.BOTTOM)
         }
     }
 
